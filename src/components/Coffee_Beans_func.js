@@ -6,6 +6,7 @@ import LinearGradient from "react-native-linear-gradient";
 import { AddCart } from '../redux/slice';
 import { cartCounter } from '../redux/slice';
 import { useIsFocused } from '@react-navigation/native'
+import Svg2 from "../assets/SVGS/star.svg"
 const Coffee_beans_func = ({ item,onPress }) => {
   
   const item_array=useSelector((state=>state.qty1.Cart))
@@ -42,28 +43,32 @@ const Coffee_beans_func = ({ item,onPress }) => {
     <TouchableOpacity 
     onPress={onPress}
     style={styles.container}>
+      
      
-    <LinearGradient style={{borderRadius:30,paddingBottom:20}} colors={['#141E30', '#243B55']}>
+    <LinearGradient style={{borderRadius:30,paddingBottom:'25%',height:'98%',width:'105%'}} colors={['#262B33', '#0C0F14']} start={{x:0,y:0}} end={{x:1.5,y:0}}>
 
       <Image
         source={{ uri: item.imgUrl1 }}
         style={[styles.image]}
       />
+      <View style={{position:'absolute',width:'31.4%',height:22,backgroundColor:'rgba(0, 0, 0, 0.6)',left:'59.5%',bottom:'103.5%',borderBottomLeftRadius:30,borderTopRightRadius:30,alignItems:'center',justifyContent:'center'}}>
+        <Text style={{fontSize:10}}><Svg2 width={10} height={10}/> 4.5</Text>
+      </View>
       
-      <Text style={[{color:'white',textAlign:'center',fontWeight:'bold',fontSize:20,fontFamily:'arial',marginTop:10}]}>
+      <Text style={[{color:'white',textAlign:'left',fontSize:15,fontFamily:'Poppins-Regular',marginTop:10,marginLeft:'10%'}]}>
         {item.titl1}
       </Text>
 
-      <Text style={[{color:'white',textAlign:'center',marginBottom:10, marginTop:5}]}>
+      <Text style={[{fontSize:10,fontFamily:'Poppins-Regular',color:'white',textAlign:'left',marginBottom:'5%',marginTop:'3%',marginLeft:'10%'}]}>
         {item.body1}
       </Text>
 
-      <View style={{width:'100%',paddingHorizontal:10,flexDirection:'row',justifyContent:'space-between'}}>
+      <View style={{width:'100%',paddingHorizontal:10,flexDirection:'row',alignItems:'center'}}>
 
           <View style={{width:'72%'}}>
 
               <Text 
-              style={{color:'white',fontFamily:'arial',fontWeight:'bold'}}
+              style={{color:'white',fontFamily:'arial',fontWeight:'bold',textAlign:'left',marginLeft:'9%'}}
               numberOfLines={1}>
               <Text style={{color:'#D17842'}}>$</Text>
               {item.b_price}
@@ -71,7 +76,7 @@ const Coffee_beans_func = ({ item,onPress }) => {
 
           </View>
             
-        <View style={{width:'3%'}}></View>
+        
 
         <TouchableOpacity
         onPress={()=>{
@@ -81,13 +86,13 @@ const Coffee_beans_func = ({ item,onPress }) => {
           }
           else{
             
-             addValueToCart({id:item.id_b,name:item.titl1,small:1,medium:0,large:0,img:item.imgUrl1,small_price:item.small_p_b,medium_price:item.medium_p_b,large_price:item.large_p_b,total_p:item.small_p_b})
+             addValueToCart({id:item.id_b,name:item.titl1,small:1,medium:0,large:0,img:item.imgUrl1,small_price:item.small_p_b,medium_price:item.medium_p_b,large_price:item.large_p_b,total_p:item.small_p_b,smallSize:item.size_B_S,mediumSize:item.size_B_M,largeSize:item.size_B_L})
           }
 
           dispatch(cartCounter())
         
         }} 
-        style={{width:'25%',height:28,borderRadius:9,backgroundColor:'#D17842',alignItems:'center',justifyContent:'center'}}>
+        style={{width:28,height:28,borderRadius:9,backgroundColor:'#D17842',alignItems:'center',justifyContent:'center'}}>
         <Pluss/>
         </TouchableOpacity>
       </View>
@@ -103,7 +108,6 @@ const Coffee_beans_func = ({ item,onPress }) => {
       borderRadius: 30,
       width: 160,
       minHeight:148,
-      borderWidth:5,
       marginTop:30
       
     },
@@ -111,7 +115,7 @@ const Coffee_beans_func = ({ item,onPress }) => {
         alignSelf:'center',
         borderRadius:30,
         marginTop:10,
-        width: 130,
+        width: '85%',
         height: 130,
         
       },

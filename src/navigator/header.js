@@ -4,10 +4,10 @@ import { View, Text,Image,TouchableOpacity } from "react-native"
 const Header=(props)=>{
 return(
     <View 
-    style={[{flexDirection:'row', height: '5%', backgroundColor: 'black', alignItems: 'center', justifyContent: 'space-around', marginVertical: 20 }]}
+    style={[{flexDirection:'row', height: '5%', backgroundColor: '#0C0F14', alignItems: 'center', justifyContent: 'space-between', marginVertical: 20,marginHorizontal:'6%' }]}
     >
 
-        <TouchableOpacity style={{width:50,height:50}}
+        <TouchableOpacity style={{width:'9%',height:'80%',backgroundColor:'#21262E',alignItems:'center',justifyContent:'center',borderRadius:10,}}
          onPress={()=>{
              return(
                 props.navigation.openDrawer()
@@ -15,8 +15,8 @@ return(
                 }}>
 
         <Image
-          style={{ width: '90%', height: '90%' }}
-          source={require("../assets/SVGS/menu.png")}
+          style={{ width: '50%', height: '50%' }}
+          source={require("../assets/SVGS/home_button.png")}
         />
 
         </TouchableOpacity>
@@ -28,7 +28,7 @@ return(
 
 
         <Image
-          style={{ width: '8%', height: '85%', borderRadius: 10 }}
+          style={{ width: '8%', height: '78%', borderRadius: 10 }}
           source={require("../assets/SVGS/f0b67a25e4700db72549080f48c2ce83.png")}
         />
         

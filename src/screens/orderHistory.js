@@ -24,7 +24,7 @@ const OrderHis=(props)=>{
                 checkQty(item?.small || item?.medium || item?.large)&&
         
                 <View 
-                style={{ width: x - 500, backgroundColor: '#141E30', borderRadius: 30,paddingBottom:20 }}
+                style={{ width:'100%', backgroundColor: '#21262E', borderRadius: 30,paddingBottom:20,paddingHorizontal:'2%' }}
                 >
                  
                   <View 
@@ -44,7 +44,7 @@ const OrderHis=(props)=>{
                       </Text>
         
                       <Text 
-                      style={{ paddingTop: 5, fontFamily: 'arial' }}>
+                      style={{ paddingTop: 5, fontFamily: 'arial',color:'rgba(174, 174, 174, 1)' }}>
                       With steamed milk
                       </Text>
         
@@ -64,13 +64,13 @@ const OrderHis=(props)=>{
         
                     <View 
                     style={{ flexDirection: 'row', alignItems: 'center',justifyContent:'space-between' }}>
-                      <View style={{flexDirection:'row',marginBottom:10}}>
+                      <View style={{flexDirection:'row',marginBottom:10,alignItems:'center'}}>
                       <View 
                       style={{ width: 40, height: 35, backgroundColor: 'rgba(255,255,255,0.2)', marginLeft: 15,marginRight:2, alignItems: 'center', justifyContent: 'center',borderTopLeftRadius:10,borderBottomLeftRadius:10 }}>
         
                         <Text 
-                        style={{ fontFamily: 'arial', fontWeight: 'bold', fontSize: 13, color: 'white' }}>
-                          S
+                        style={{ fontFamily: 'arial', fontWeight: 'bold', fontSize: 9, color: 'white' }}>
+                          {item?.smallSize}
                         </Text>
         
                       </View>
@@ -84,7 +84,7 @@ const OrderHis=(props)=>{
                         </View>
 
         
-                    <View style={{flexDirection:'row',}}>
+                    <View style={{flexDirection:'row',alignItems:'center'}}>
                       <View 
                       style={{marginRight:100, width: 50, height: 30, marginHorizontal: 10, alignItems: 'center', justifyContent: 'center' }}>
                       <Text 
@@ -107,8 +107,8 @@ const OrderHis=(props)=>{
                       style={{ width: 40, height: 35, backgroundColor: 'rgba(255,255,255,0.2)', marginLeft: 15,marginRight:2, alignItems: 'center', justifyContent: 'center',borderTopLeftRadius:10,borderBottomLeftRadius:10 }}>
         
                         <Text 
-                        style={{ fontFamily: 'arial', fontWeight: 'bold', fontSize: 13, color: 'white' }}>
-                          M
+                        style={{ fontFamily: 'arial', fontWeight: 'bold', fontSize: 9, color: 'white' }}>
+                          {item?.mediumSize}
                         </Text>
         
                       </View>
@@ -146,8 +146,8 @@ const OrderHis=(props)=>{
                       style={{ width: 40, height: 35, backgroundColor: 'rgba(255,255,255,0.2)', marginLeft: 15,marginRight:2, alignItems: 'center', justifyContent: 'center',borderTopLeftRadius:10,borderBottomLeftRadius:10 }}>
         
                         <Text 
-                        style={{ fontFamily: 'arial', fontWeight: 'bold', fontSize: 13, color: 'white' }}>
-                          L
+                        style={{ fontFamily: 'arial', fontWeight: 'bold', fontSize: 9, color: 'white' }}>
+                          {item?.largeSize}
                         </Text>
         
                       </View>
@@ -201,7 +201,7 @@ const OrderHis=(props)=>{
               }
 
     return(
-        <View style={{ flex: 1,backgroundColor:'black' }}>
+        <View style={{ flex: 1,backgroundColor:'#0C0F14' }}>
             <Header navigation={props.navigation} screen={"Order History"}/>
             <ScrollView>
                 <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
@@ -216,7 +216,7 @@ const OrderHis=(props)=>{
                 </View>
                 
                 <FlatList
-                contentContainerStyle={{paddingHorizontal:20}}
+                contentContainerStyle={{alignSelf:'center',paddingBottom:20}}
                 data={data}
                 renderItem={render_func}
                 showsVerticalScrollIndicator={false}
@@ -226,7 +226,7 @@ const OrderHis=(props)=>{
                 />
             
             </ScrollView>
-            <Bottom navigation={props.navigation}/>
+            <Bottom navigation={props.navigation} screen={"oh"}/>
 
         </View>
     )

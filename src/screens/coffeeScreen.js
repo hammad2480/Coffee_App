@@ -23,6 +23,7 @@ import Bottom from '../navigator/bottom'
  
 
 function DetailsScreen({route,navigation}) {
+  const [toggle,setToggle]=useState(false)
   const my_params=route.params
   // console.log(my_params)
   const uri="https://www.acouplecooks.com/wp-content/uploads/2021/12/Mocha-Cappuccino-004.jpg"
@@ -74,12 +75,12 @@ const updateValueToCart=async(obj,id)=>{
       <Image style={styles.imgStyle}
        source={{uri:my_params.img}}
        />
-       <View style={{flexDirection:'row',backgroundColor:'rgba(0,0,0,0)',height:50,bottom:400,justifyContent:'space-around',alignItems:'center'}}>
+       <View style={{flexDirection:'row',backgroundColor:'rgba(0,0,0,0)',height:50,bottom:'100%',justifyContent:'space-around',alignItems:'center'}}>
         <TouchableOpacity 
         onPress={()=>{
           navigation.goBack()
         }}
-        style={{backgroundColor:'#141E30',height:'80%',width:'11%',alignItems:'center',justifyContent:'center',borderRadius:15}}>
+        style={{backgroundColor:'#0C0F14',height:'80%',width:'11%',alignItems:'center',justifyContent:'center',borderRadius:15}}>
           <Image source={require("../assets/SVGS/arrow-left.png")}/>        
 
           </TouchableOpacity >
@@ -95,24 +96,20 @@ const updateValueToCart=async(obj,id)=>{
             else{
             dispatch(addFavirote(my_params.name))
             }
+            setToggle(!toggle)
+            
             
           
           
-          console.log(favi)
+      
           
         }}
-         style={{backgroundColor:'#141E30',height:'80%',width:'11%',alignItems:'center',justifyContent:'center',borderRadius:15,marginLeft:200}}>
-          <Image source={require("../assets/SVGS/heart.png")}/>
+         style={{backgroundColor:'#0C0F14',height:'80%',width:'11%',alignItems:'center',justifyContent:'center',borderRadius:15,marginLeft:200}}>
+          <Image 
+          style={{width:'40%',height:'40%'}}
+          source={toggle?require("../assets/SVGS/heart_red.png"):require("../assets/SVGS/heart_white.png")}/>
         </TouchableOpacity>
-        <TouchableOpacity
-        onPress={()=>{
-          navigation.navigate('Cart')
-        }}
-        style={{backgroundColor:'#141E30',height:'80%',width:'11%',alignItems:'center',justifyContent:'center',borderRadius:15}}
         
-        >
-          <Text style={{fontFamily:'arial',fontWeight:'bold',color:'white'}}>{counter}</Text>
-        </TouchableOpacity>
       
         
         
@@ -120,28 +117,32 @@ const updateValueToCart=async(obj,id)=>{
        </View>
        <View style={{width:'100%',height:'15.1%',backgroundColor:'rgba(0,0,0,0.5)',position:'absolute',top:'32.8%',borderTopLeftRadius:40,borderTopRightRadius:40,}}>
         <View style={{flexDirection:'row',height:'50%',alignItems:'center',justifyContent:'space-around'}}>
-        <Text style={{fontFamily:'arial',fontWeight:'bold',fontSize:20,color:'white'}}>{my_params.name}</Text>
-        <View style={{width:55,height:55,backgroundColor:'#141E30',marginLeft:30,borderRadius:10,alignItems:'center',justifyContent:'center'}}>
+          <View style={{width:'35%',marginLeft:'1%'}}>
+        <Text style={{fontFamily:'Poppins-SemiBold',fontSize:20,color:'white'}}>{my_params.name}</Text>
+        </View>
+        <View style={{flexDirection:'row',width:'35%',marginRight:'7%',justifyContent:'space-between'}}>
+        <View style={{width:55,height:55,backgroundColor:'#141921',marginLeft:'8%',borderRadius:10,alignItems:'center',justifyContent:'center'}}>
           <Svg width={40} height={40}/>  
-          <Text style={{fontSize:10,fontWeight:'bold',fontFamily:'arial'}}>Coffee</Text>   
+          <Text style={{fontSize:10,fontFamily:'Poppins-Medium',color:'white'}}>Coffee</Text>   
           </View>
-        <View style={{width:55,height:55,backgroundColor:'#141E30',marginRight:20,borderRadius:10,alignItems:'center',alignContent:'center'}}>
+        <View style={{width:55,height:55,backgroundColor:'#141921',marginRight:'4.5%',borderRadius:10,alignItems:'center',alignContent:'center'}}>
            <Svg1 width={40} height={40}/>
-           <Text style={{fontSize:10,fontWeight:'bold',fontFamily:'arial'}}>Milk</Text> 
+           <Text style={{fontSize:10,fontFamily:'Poppins-Medium',color:'white'}}>Milk</Text> 
+        </View>
         </View>
         
        </View>
        <View style={{width:'32%',position:'absolute',top:'35%',left:'6%'}}>
-        <Text style={{fontFamily:'arial'}}>With Steamed milk</Text>
+        <Text style={{fontFamily:'Poppins-Regular',fontSize:12,color:'rgba(174, 174, 174, 1)'}}>With Steamed milk</Text>
         </View>
         <View style={{flexDirection:'row',height:'50%',justifyContent:'space-around',alignItems:'center'}}>
-          <View style={{flexDirection:'row',width:'40%',height:'80%',alignItems:'center'}}>
+          <View style={{flexDirection:'row',width:'38%',height:'80%',alignItems:'center'}}>
             <Svg2 width={30} height={30} />
-            <Text style={{fontSize:15,fontFamily:'arial',fontWeight:'bold'}}>  4.5</Text>
-            <Text style={{fontSize:10,fontFamily:'arial'}}>    (6,879)</Text>
+            <Text style={{fontSize:15,fontFamily:'arial',fontWeight:'bold',color:'white'}}>  4.5</Text>
+            <Text style={{fontSize:10,fontFamily:'arial',color:'white'}}>    (6,879)</Text>
           </View>
-          <View style={{width:'36%',marginRight:x-385,height:'80%',borderRadius:10,backgroundColor:'#141E30',alignItems:'center',justifyContent:'center'}}>
-            <Text style={{fontWeight:'bold',fontSize:11,fontFamily:'arial'}}>Medium Roasted</Text>
+          <View style={{width:'36%',marginRight:'6%',height:'80%',borderRadius:10,backgroundColor:'#141921',alignItems:'center',justifyContent:'center'}}>
+            <Text style={{fontSize:10,fontFamily:'Poppins-Medium',color:'rgba(174, 174, 174, 1)'}}>Medium Roasted</Text>
           </View>
 
         </View>
@@ -149,13 +150,13 @@ const updateValueToCart=async(obj,id)=>{
       <View style={[styles.row,{height:y/2,paddingLeft:30,paddingRight:50}]}>
         <View>
              <Text style={[styles.heading]}>Description</Text>
-            <Text style={styles.description}>{my_params.desc}</Text>
+            <Text style={[styles.description,{color:'white'}]}>{my_params.desc}</Text>
           <Text style={styles.heading}>Size</Text>
         
           
-          <View  style={[styles.row,{height:'10%',justifyContent:'space-between',paddingHorizontal:30,marginBottom:30}]}>
+          <View  style={[styles.row,{width:'100%',height:'10%',justifyContent:'space-between',marginBottom:30}]}>
           
-          <TouchableOpacity style={[{borderWidth:1,borderColor:colr,width:'25%',borderRadius:10,justifyContent:'center',alignItems:'center',backgroundColor:'rgba(0,0,40,0.6)'}]}
+          <TouchableOpacity style={[{borderWidth:1,borderColor:colr,width:'30%',borderRadius:10,justifyContent:'center',alignItems:'center',backgroundColor:'#141921'}]}
           onPress={()=>{
             setSize('S')
             setState(my_params.sm)
@@ -165,9 +166,9 @@ const updateValueToCart=async(obj,id)=>{
 
             
           }}
-          ><Text style={[{fontFamily:'arial',color:'white'}]}>S</Text></TouchableOpacity>
+          ><Text style={[{fontFamily:'Poppins-Medium',color:'white',fontSize:12}]}>S</Text></TouchableOpacity>
           
-          <TouchableOpacity style={[{borderWidth:1,borderColor:colr1,width:'25%',borderRadius:10,justifyContent:'center',alignItems:'center',backgroundColor:'rgba(0,0,40,0.6)'}]}
+          <TouchableOpacity style={[{borderWidth:1,borderColor:colr1,width:'30%',borderRadius:10,justifyContent:'center',alignItems:'center',backgroundColor:'#141921'}]}
           onPress={()=>{
               setSize('M')
               setState(my_params.md)
@@ -177,10 +178,10 @@ const updateValueToCart=async(obj,id)=>{
              
               
             }}>
-          <Text style={[{fontFamily:'arial',color:'white'}]}>M</Text></TouchableOpacity>
+          <Text style={[{fontFamily:'arial',color:'white',fontFamily:'Poppins-Medium',fontSize:12}]}>M</Text></TouchableOpacity>
             
           
-          <TouchableOpacity style={[{borderWidth:1,borderColor:colr2,width:'25%',borderRadius:10,justifyContent:'center',alignItems:'center',backgroundColor:'rgba(0,0,40,0.6)'}]}
+          <TouchableOpacity style={[{borderWidth:1,borderColor:colr2,width:'30%',borderRadius:10,justifyContent:'center',alignItems:'center',backgroundColor:'#141921'}]}
           onPress={()=>{
             
              setSize('L')
@@ -191,7 +192,7 @@ const updateValueToCart=async(obj,id)=>{
             
              }}>
               
-              <Text style={[{fontFamily:'arial',color:'white'}]}>L</Text></TouchableOpacity>
+              <Text style={[{fontFamily:'Poppins-Medium',color:'white',fontSize:12}]}>L</Text></TouchableOpacity>
             
           
           
@@ -205,7 +206,7 @@ const updateValueToCart=async(obj,id)=>{
           </View>
           <View style={[styles.row,{width:'100%',height:'20%',justifyContent:'space-around',alignItems:'center'}]}>
             <View style={[{width:'20%',height:50,alignItems:'center',alignContent:'center'}]}>
-              <Text style={{fontSize:12,fontFamily:'arial'}}>Price</Text>
+              <Text style={{fontSize:12,fontFamily:'Poppins-Medium',color:'rgba(174, 174, 174, 1)'}}>Price</Text>
               
               <View 
               
@@ -232,7 +233,7 @@ const updateValueToCart=async(obj,id)=>{
                     await updateValueToCart({...cartData[itemIndex],small:cartData[itemIndex].small+1,total_p:cartData[itemIndex].total_p+my_params.sm},itemIndex)
                   }
                   else{
-                    await addValueToCart({id:my_params.ID,name:my_params.name,small:1,medium:0,large:0,img:my_params.img,small_price:my_params.sm,medium_price:my_params.md,large_price:my_params.lg,total_p:my_params.small})
+                    await addValueToCart({id:my_params.ID,name:my_params.name,small:1,medium:0,large:0,img:my_params.img,small_price:my_params.sm,medium_price:my_params.md,large_price:my_params.lg,total_p:my_params.small,smallSize:my_params.s_sm,mediumSize:my_params.s_md,largeSize:my_params.s_lg})
                   }
                 }
                 if(size=='M')
@@ -243,7 +244,7 @@ const updateValueToCart=async(obj,id)=>{
                     await updateValueToCart({...cartData[itemIndex],medium:cartData[itemIndex].medium+1,total_p:cartData[itemIndex].total_p+my_params.md},itemIndex)
                   }
                   else{
-                    await addValueToCart({id:my_params.ID,name:my_params.name,small:0,medium:1,large:0,img:my_params.img,small_price:my_params.sm,medium_price:my_params.md,large_price:my_params.lg,total_p:my_params.medium})
+                    await addValueToCart({id:my_params.ID,name:my_params.name,small:0,medium:1,large:0,img:my_params.img,small_price:my_params.sm,medium_price:my_params.md,large_price:my_params.lg,total_p:my_params.medium,smallSize:my_params.s_sm,mediumSize:my_params.s_md,largeSize:my_params.s_lg})
                   }
                  
                 }
@@ -257,7 +258,7 @@ const updateValueToCart=async(obj,id)=>{
                     
                   }
                   else{
-                    await addValueToCart({id:my_params.ID,name:my_params.name,small:0,medium:0,large:1,img:my_params.img,small_price:my_params.sm,medium_price:my_params.md,large_price:my_params.lg,total_p:my_params.lg})
+                    await addValueToCart({id:my_params.ID,name:my_params.name,small:0,medium:0,large:1,img:my_params.img,small_price:my_params.sm,medium_price:my_params.md,large_price:my_params.lg,total_p:my_params.lg,smallSize:my_params.s_sm,mediumSize:my_params.s_md,largeSize:my_params.s_lg})
                     
                   }
                  
@@ -312,7 +313,7 @@ container:{
   flex:1,
   width:'100%',
   height:'100%',
-  backgroundColor:'#141E30',
+  backgroundColor:'#0C0F14',
 
   
 },
@@ -332,16 +333,16 @@ row:{
 },
 description:{
   lineHeight:20,
-  fontFamily:'arial'
+  fontFamily:'Poppins-Regular',
+  fontSize:12
    
 
 },
 heading:{
   paddingVertical:10,
-  fontFamily:'arial',
-  color:'white',
-  fontWeight:'bold',
-  fontSize:15,
+  fontFamily:'Poppins-SemiBold',
+  color:'rgba(174, 174, 174, 1)',
+  fontSize:14,
   
 
 }

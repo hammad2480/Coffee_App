@@ -29,7 +29,7 @@ const My_Checkout=(props)=>{
         onPress={()=>{
           props.navigation.goBack()
         }}
-        style={{backgroundColor:'#141E30',height:'80%',width:'9%',alignItems:'center',justifyContent:'center',borderRadius:10}}>
+        style={{backgroundColor:'#0C0F14',height:'80%',width:'9%',alignItems:'center',justifyContent:'center',borderRadius:10}}>
           <Image source={require("../assets/SVGS/arrow-left.png")}/>        
             </TouchableOpacity >
             <Text style={[styles.text,{color:'white',fontWeight:'bold',fontSize:15}]}>Payment</Text>
@@ -42,7 +42,7 @@ const My_Checkout=(props)=>{
                 <View style={{width:'100%',height:'22%',backgroundColor:'black',justifyContent:'center'}}>
                     <Text style={[styles.text,{marginLeft:10,fontWeight:'bold'}]} >Credit Card</Text>
                 </View>
-                <View style={{width:'100%',height:'78%',backgroundColor:'#141E30',borderRadius:15}}>
+                <View style={{width:'100%',height:'78%',backgroundColor:'#262B33',borderRadius:15}}>
                     <View style={[styles.row,{width:'100%',height:'30%',alignItems:'center',justifyContent:'space-between'}]}>
                         <Image 
                         style={{marginLeft:10}}
@@ -65,7 +65,7 @@ const My_Checkout=(props)=>{
                         </View>
                     </View>
                 </View>
-                <View style={[styles.row,{height:'20%',width:'100%',alignSelf:'center',backgroundColor:'#141E30',borderRadius:20,marginTop:30,alignItems:'center',justifyContent:'space-between'}]}>
+                <View style={[styles.row,{height:'20%',width:'100%',alignSelf:'center',backgroundColor:'#262B33',borderRadius:20,marginTop:30,alignItems:'center',justifyContent:'space-between'}]}>
                     <View style={[styles.row,{justifyContent:'space-between',alignItems:'center',width:'25%',height:'100%',marginLeft:15}]}>
                         <Image source={require("../assets/SVGS/wallet.png")}/>
                         <Text style={[styles.text,{fontWeight:'bold'}]}>Wallet</Text>
@@ -73,7 +73,7 @@ const My_Checkout=(props)=>{
                     </View>
                     <Text style={[styles.text,{marginRight:15}]}>$ 100.50</Text>
                 </View>
-                <View style={[styles.row,{height:'20%',width:'100%',alignSelf:'center',backgroundColor:'#141E30',borderRadius:20,marginTop:10,alignItems:'center',justifyContent:'flex-start'}]}>
+                <View style={[styles.row,{height:'20%',width:'100%',alignSelf:'center',backgroundColor:'#262B33',borderRadius:20,marginTop:10,alignItems:'center',justifyContent:'flex-start'}]}>
                     <View style={[styles.row,{justifyContent:'space-between',alignItems:'center',width:'35%',height:'100%',marginLeft:15}]}>
                         <Image source={require("../assets/SVGS/Google.png")}/>
                         <Text style={[styles.text,{fontWeight:'bold'}]}>Google Pay</Text>
@@ -81,7 +81,7 @@ const My_Checkout=(props)=>{
                     </View>
 
                 </View>
-                <View style={[styles.row,{height:'20%',width:'100%',alignSelf:'center',backgroundColor:'#141E30',borderRadius:20,marginTop:10,alignItems:'center',justifyContent:'flex-start'}]}>
+                <View style={[styles.row,{height:'20%',width:'100%',alignSelf:'center',backgroundColor:'#262B33',borderRadius:20,marginTop:10,alignItems:'center',justifyContent:'flex-start'}]}>
                     <View style={[styles.row,{justifyContent:'space-between',alignItems:'center',width:'30%',height:'100%',marginLeft:15}]}>
                         <Image source={require("../assets/SVGS/apple.png")}/>
                         <Text style={[styles.text,{fontWeight:'bold'}]}>Apple Pay</Text>
@@ -89,7 +89,7 @@ const My_Checkout=(props)=>{
                     </View>
 
                 </View>
-                <View style={[styles.row,{height:'20%',width:'100%',alignSelf:'center',backgroundColor:'#141E30',borderRadius:20,marginTop:10,alignItems:'center',justifyContent:'flex-start'}]}>
+                <View style={[styles.row,{height:'20%',width:'100%',alignSelf:'center',backgroundColor:'#262B33',borderRadius:20,marginTop:10,alignItems:'center',justifyContent:'flex-start'}]}>
                     <View style={[styles.row,{justifyContent:'space-between',alignItems:'center',width:'37%',height:'100%',marginLeft:15}]}>
                         <Image source={require("../assets/SVGS/amazon.png")}/>
                         <Text style={[styles.text,{fontWeight:'bold'}]}>Amazon Pay</Text>

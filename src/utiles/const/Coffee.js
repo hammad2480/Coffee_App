@@ -20,6 +20,13 @@ const Coffee = [
       
       title: "Cappuccino",
       titl1:"Robusta",
+
+      size_C_S:'S',
+      size_C_M:'M',
+      size_C_L:'L',
+      size_B_S:'250gm',
+      size_B_M:'500gm',
+      size_B_L:'1000gm',
       
       body: 'With Steamed Milk',
       body1:'Coffee Beans',
@@ -47,6 +54,13 @@ const Coffee = [
       
       title: "Latte",
       titl1:"Arabica",
+
+      size_C_S:'S',
+      size_C_M:'M',
+      size_C_L:'L',
+      size_B_S:'250gm',
+      size_B_M:'500gm',
+      size_B_L:'1000gm',
       
       body: 'With Foam',
       body1:'Coffee Beans',
@@ -70,6 +84,13 @@ const Coffee = [
       
       c_price:'1.00',
       b_price:'20.00',
+
+      size_C_S:'S',
+      size_C_M:'M',
+      size_C_L:'L',
+      size_B_S:'250gm',
+      size_B_M:'500gm',
+      size_B_L:'1000gm',
       
       title: "Americano",
       titl1:"Cappuccino B",

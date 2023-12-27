@@ -61,7 +61,7 @@ const checkQty=(val)=>{
         checkQty(item?.small || item?.medium || item?.large)&&
 
         <View 
-        style={{ width: x - 500, backgroundColor: '#141E30', borderRadius: 30,paddingBottom:20 }}
+        style={{ width:'100%', backgroundColor: '#21262E', borderRadius: 30,paddingBottom:20,paddingHorizontal:'2%' }}
         >
          
           <View 
@@ -81,7 +81,7 @@ const checkQty=(val)=>{
               </Text>
 
               <Text 
-              style={{ paddingTop: 5, paddingBottom: 20, fontFamily: 'arial' }}>
+              style={{ paddingTop: 5, paddingBottom: 20, fontFamily: 'arial',color:'rgba(174, 174, 174, 1)' }}>
               With steamed milk
               </Text>
 
@@ -89,7 +89,7 @@ const checkQty=(val)=>{
               style={{ backgroundColor: 'rgba(255,255,255,0.2)', width: '97%', height: 40, justifyContent: 'center', alignItems: 'center', borderRadius: 10 }}>
                 
                 <Text 
-                style={{ color: 'white' }}>
+                style={{ fontFamily:'Poppins-Medium',fontSize:10,color: 'white' }}>
                 Medium Roasted
                 </Text>
 
@@ -130,7 +130,7 @@ const checkQty=(val)=>{
 
                 <Text 
                 style={{ fontFamily: 'arial', fontWeight: 'bold', fontSize: 13, color: 'white' }}>
-                  S
+                  {item?.smallSize}
                 </Text>
 
               </View>
@@ -176,7 +176,7 @@ const checkQty=(val)=>{
             {checkQty(item?.medium)&&
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 10 }}>
               <View style={{ width: 72, height: 35, backgroundColor: 'rgba(255,255,255,0.2)', marginLeft: 20, alignItems: 'center', justifyContent: 'center', borderRadius: 10 }}>
-                <Text style={{ fontFamily: 'arial', fontWeight: 'bold', fontSize: 13, color: 'white' }}>M</Text>
+                <Text style={{ fontFamily: 'arial', fontWeight: 'bold', fontSize: 13, color: 'white' }}>{item.mediumSize}</Text>
               </View>
               <Text style={{ marginLeft: 25, fontFamily: 'arial', fontWeight: 'bold', fontSize: 13, color: 'white' }}><Text style={{ color: 'orange' }}>$</Text>{item?.medium_price}</Text>
               <View style={{ width: 30, marginLeft: 30 }}></View>
@@ -203,7 +203,7 @@ const checkQty=(val)=>{
             {checkQty(item?.large)&&
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
               <View style={{ width: 72, height: 35, backgroundColor: 'rgba(255,255,255,0.2)', marginLeft: 20, alignItems: 'center', justifyContent: 'center', borderRadius: 10 }}>
-                <Text style={{ fontFamily: 'arial', fontWeight: 'bold', fontSize: 13, color: 'white' }}>L</Text>
+                <Text style={{ fontFamily: 'arial', fontWeight: 'bold', fontSize: 13, color: 'white' }}>{item.largeSize}</Text>
               </View>
 
               <Text style={{ marginLeft: 25, fontFamily: 'arial', fontWeight: 'bold', fontSize: 13, color: 'white' }}><Text style={{ color: 'orange' }}>$</Text>{item?.large_price}</Text>
@@ -235,16 +235,21 @@ const checkQty=(val)=>{
             </View>
       )}
       var check
-      for(let i=0 ;i<cartData.length;i++){
-        if(cartData[i]){
-          if(cartData[i].small>0|| cartData[i].medium>0||cartData[i].large>0){
+     
+        
+          if(cartData[0].small>0|| cartData[0].medium>0||cartData[0].large>0||
+            cartData[1].small>0|| cartData[1].medium>0||cartData[1].large>0||
+            cartData[2].small>0|| cartData[2].medium>0||cartData[2].large>0||
+            cartData[3].small>0|| cartData[3].medium>0||cartData[3].large>0||
+            cartData[4].small>0|| cartData[4].medium>0||cartData[4].large>0||
+            cartData[5].small>0|| cartData[5].medium>0||cartData[5].large>0){
             check=1
           }
           else{
             check=0
           }
-        }
-      }
+        
+      
       console.log(check)
 
       var totalPrice=0
@@ -256,12 +261,12 @@ const checkQty=(val)=>{
   
 
   return (
-    <View style={{ flex: 1,backgroundColor:'black' }}>
+    <View style={{ flex: 1,backgroundColor:'#0C0F14' }}>
       <Header navigation={props.navigation} screen={"Cart"}/>
-    <ScrollView style={[{backgroundColor: 'black' }]}>
+    <ScrollView style={[{backgroundColor: '#0C0F14' }]}>
       <FlatList
-      style={{paddingHorizontal:20}}
-        // contentContainerStyle={}
+      
+        contentContainerStyle={{alignSelf:'center'}}
         data={cartData}
         renderItem={render_func}
         showsVerticalScrollIndicator={false}
@@ -275,8 +280,8 @@ const checkQty=(val)=>{
       <View style={{flexDirection:'row',width:'90%',height:60,alignSelf:'center',marginVertical:50,justifyContent:'space-between'}}>
       
       <View style={{width:'35%',height:'100%',alignItems:'center',justifyContent:'space-around'}}>
-        <Text style={{fontFamily:'arial'}}>Total Price</Text>
-        <Text style={{fontFamily:'arial',fontWeight:'bold',color:'white',fontSize:15}}><Text style={{color:'#D17842'}}>$</Text>{totalPrice}</Text>
+        <Text style={{fontFamily:'Poppins-Medium',color:'rgba(174, 174, 174, 1)',fontSize:12}}>Total Price</Text>
+        <Text style={{fontFamily:'arial',color:'white',fontSize:15}}><Text style={{color:'#D17842'}}>$</Text>{totalPrice}</Text>
       </View>
       
         <TouchableOpacity
@@ -292,7 +297,7 @@ const checkQty=(val)=>{
       
 
     </ScrollView>
-    <Bottom navigation={props.navigation}/>
+    <Bottom navigation={props.navigation} screen={"cart"}/>
     </View>
 
   )

@@ -16,6 +16,7 @@ import Header from '../navigator/header';
 
 
 
+
 const Fav=(props)=>{
   const Favirotes=useSelector((state=>state.qty1.fav))
   const Dispatch=useDispatch()
@@ -49,38 +50,39 @@ const Fav=(props)=>{
                     </View>
                     <View style={{width:350,height:150,position:'absolute',backgroundColor:'rgba(0,0,0,0.5)',top:'41%',borderTopLeftRadius:30,borderTopRightRadius:30}}>
                         <View style={{flexDirection:'row',width:'100%',height:'40%',marginTop:10,alignItems:'center',justifyContent:'space-around'}}>
+                            <View style={{width:'55%',marginTop:'3%'}}>
                             <Text
-                            numberOfLines={2} 
+                             
                             style={{color:'white',fontFamily:'arial',fontWeight:'bold',fontSize:25,marginLeft:20}}>{item?.name}</Text>
+                            <Text style={{fontFamily:'arial',marginLeft:'11%',color:'rgba(174, 174, 174, 1)'}}>With Steamed Milk</Text>
+                            </View>
                             <View style={{flexDirection:'row',width:'45%',height:'100%',alignItems:'center',justifyContent:'space-around'}}>
-                                <View style={{width:'40%',height:'100%',backgroundColor:'#141E30',alignItems:'center',justifyContent:'center',borderRadius:10}}>
+                                <View style={{width:'40%',height:'100%',backgroundColor:'#21262E',alignItems:'center',justifyContent:'center',borderRadius:10}}>
                                     <Svg width={35} height={35}/>
-                                    <Text style={{fontWeight:'bold',fontFamily:'arial'}}>Coffee</Text>
+                                    <Text style={{fontWeight:'bold',fontFamily:'arial',color:'rgba(174, 174, 174, 1)'}}>Coffee</Text>
                                 </View>
-                                <View style={{width:'40%',height:'100%',backgroundColor:'#141E30',alignItems:'center',justifyContent:'center',borderRadius:10}}>
+                                <View style={{width:'40%',height:'100%',backgroundColor:'#21262E',alignItems:'center',justifyContent:'center',borderRadius:10}}>
                                 <Svg1 width={35} height={35}/>
-                                    <Text style={{fontWeight:'bold',fontFamily:'arial'}}>Milk</Text>
+                                    <Text style={{fontWeight:'bold',fontFamily:'arial',color:'rgba(174, 174, 174, 1)'}}>Milk</Text>
                                 </View>
                             </View>
                         </View>
-                        <View style={{height:'12%',width:'40%',marginLeft:30,bottom:12,alignItems:'center',justifyContent:'center'}}>
-                            <Text style={{fontFamily:'arial'}}>With Steamed Milk</Text>
-                        </View>
-                        <View style={{flexDirection:'row',width:'100%',height:'40%',bottom:8,justifyContent:'space-around',alignItems:'center'}}>
+                        
+                        <View style={{flexDirection:'row',width:'100%',height:'40%',bottom:8,justifyContent:'space-around',alignItems:'center',marginTop:'5%'}}>
                             <View style={{flexDirection:'row',width:'35%',height:'100%',alignItems:'center'}}>
                                 <Svg2 width={25} height={25}/>
                                 <Text style={{fontFamily:'arial',fontWeight:'bold',fontSize:15,color:'white',marginLeft:5}}>4.5</Text>
-                                <Text style={{marginLeft:10,fontFamily:'arial'}}>(6,879)</Text>
+                                <Text style={{marginLeft:10,fontFamily:'arial',color:'rgba(174, 174, 174, 1)'}}>(6,879)</Text>
                             </View>
-                            <View style={{width:'35%',height:'90%',backgroundColor:'#141E30',borderRadius:10,alignItems:'center',justifyContent:'center'}}>
-                                <Text style={{fontFamily:'arial',fontWeight:'700',fontSize:12}}>Medium Roasted</Text>
+                            <View style={{width:'35%',height:'90%',backgroundColor:'#21262E',borderRadius:10,alignItems:'center',justifyContent:'center',marginLeft:'7%'}}>
+                                <Text style={{fontFamily:'arial',fontWeight:'700',fontSize:12,color:'rgba(174, 174, 174, 1)'}}>Medium Roasted</Text>
                             </View>
 
                         </View>
                     </View>
-                    <View style={{width:350,height:220,borderBottomLeftRadius:30,borderBottomRightRadius:30,backgroundColor:'#141E30'}}>
+                    <View style={{width:350,height:220,borderBottomLeftRadius:30,borderBottomRightRadius:30,backgroundColor:'#21262E'}}>
                     <Text style={{marginTop:15,marginLeft:10,fontSize:15,color:'white',fontFamily:'arial',fontWeight:'bold'}}>Description</Text>
-                    <Text style={{fontFamily:'arial',lineHeight:23,marginHorizontal:10}}>Arabica beans are by far the most popular type of coffee beans, making up about 60% of the world’s coffee. These tasty beans originated many centuries ago in the highlands of Ethiopia, and may even be the first coffee beans ever consumed!</Text>
+                    <Text style={{fontFamily:'arial',lineHeight:23,marginHorizontal:10,color:'rgba(174, 174, 174, 1)'}}>Arabica beans are by far the most popular type of coffee beans, making up about 60% of the world’s coffee. These tasty beans originated many centuries ago in the highlands of Ethiopia, and may even be the first coffee beans ever consumed!</Text>
                     </View>
                     </View>
                 
@@ -97,7 +99,7 @@ const Fav=(props)=>{
 
     
     return(
-        <View style={{flex:1,backgroundColor:'black'}}>
+        <View style={{flex:1,backgroundColor:'#0C0F14'}}>
           <Header navigation={props.navigation} screen={"Favorites"}/>
                
 
@@ -112,7 +114,9 @@ const Fav=(props)=>{
           <View style={{ height: 20 }} />
         }
       />
-      <Bottom navigation={props.navigation}/>
+      
+      <Bottom navigation={props.navigation} h={89} c={"white"} screen={"fav"}/>
+      
       </View>
         
     )
